@@ -14,7 +14,7 @@
 
   <input type="text" name="" id="msg"><br>
   <input type="text" name="" id="username" placeholder="Seu nome de usuário">
-  <button>Enviar</button>
+  <button onclick="enviar()">Enviar</button>
 
 
  
@@ -27,12 +27,21 @@
 
     var socket = io('http://localhost:3000');
 
-    socket.emit("boasvindas",{nome:"Ivan Rodrigues"});
-
     
     socket.on('disconnect',()=>{
       console.log('Desconectado');
-    })
+    });
+
+    function enviar(){
+       
+        var msgField = document.getElementById("msg");
+        var usernameField = document.getElementById("username");
+
+        var msg = msgField.value;
+        var username = username.value;
+
+        socket.emit("msg",{msg:msg, username: username});
+    }
 
  </script>
 </html>
