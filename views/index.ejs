@@ -32,6 +32,18 @@
       console.log('Desconectado');
     });
 
+    socket.on('showMsg',(data)=>{
+      console.log(data);
+      var chat = document.getElementById("chat");
+      var p = document.createElement("p");
+      p.innerHTML ='Usuario: ' + data.username + ' mensagem: ' + data.msg;
+      chat.append(p);
+
+    })
+
+
+
+
     function enviar(){
        
        
