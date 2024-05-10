@@ -27,11 +27,15 @@ io.on("connection", (socket)=>{
 
     });
 
-    
+
 
     socket.on('msg',(data)=>{
+        //o io é um servidor entãoi ele recebe o evento mensagem de forma geral 
+        // assim acda pessoa que entrar na aplicação vai ter seu porprio objeto 
+        // de usuário e mensagem assim todos podem se comeunicar entra si dentro da aplicação 
+        //porque todos podem ver as mensagens e podem enviar também
 
-        socket.emit('showMsg',data);
+        io.emit('showMsg',data);
 
         console.log(data);
 
